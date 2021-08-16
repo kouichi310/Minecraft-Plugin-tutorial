@@ -1,3 +1,6 @@
+import java.nio.file.*
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING
+
 plugins {
     id 'java'
 }
@@ -46,5 +49,13 @@ processResources {
     filteringCharset 'UTF-8'
     filesMatching('plugin.yml') {
         expand props
+    }
+}
+
+task copyFile(){
+    doFirst {
+        Path from = Paths.get("${buildDir}/libs/tutorial-2.0.0.jar")
+        Path to   = Paths.get("C:/Users/siroR/MinecraftServer/plugins/tutorial-${version}.jar")
+        Files.copy(from, to, REPLACE_EXISTING)
     }
 }
