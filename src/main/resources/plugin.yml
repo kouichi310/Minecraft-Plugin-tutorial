@@ -1,0 +1,10 @@
+name: Tutorial
+version: '${version}'
+main: tk.sirorabi.tutorial.tutorial.Tutorial
+api-version: 1.17
+authors: [ sirorabi_jk ]
+description: チュートリアルプラグイン
+
+commands:
+  test:
+    description: ただのテスト
