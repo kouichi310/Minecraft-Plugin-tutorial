@@ -8,3 +8,19 @@ description: チュートリアルプラグイン
 commands:
   test:
     description: ただのテスト
+    permission: Tutorial.commands.test
+    permission-message: "You don't have permissions!"
+permissions:
+  Tutorial.*:
+    children:
+      Tutorial.commands: true
+    description: Tutorial permission description
+    default: op
+  Tutorial.commands:
+    description: commands permission description
+    default: op
+  Tutorial.commands.test:
+    description: test command permission description
+    default: op
+    children:
+      Tutorial.commands: false

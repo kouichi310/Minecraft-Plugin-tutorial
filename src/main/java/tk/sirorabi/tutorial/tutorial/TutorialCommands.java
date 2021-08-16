@@ -7,6 +7,10 @@ import org.bukkit.command.CommandSender;
 public class TutorialCommands implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
+        if(!sender.hasPermission("Tutorial.commands.test")){
+            sender.sendMessage("§4パーミッションを持っていません！");
+            return false;
+        }
         if(command.getName().equalsIgnoreCase("test")){ //親コマンド判定
             sender.sendMessage("§a/test が実行されました。");
             if(args.length == 0){ //サブコマンドの数が0,サブコマンド無し
